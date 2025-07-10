@@ -3,6 +3,6 @@
 
 set -e
 
-export PYTHONPATH=$(pwd)/src # Ensure src is in PYTHONPATH for absolute imports
+export PYTHONPATH="$(cd "$(dirname "$0")"; pwd)/src"  # Ensure src is in PYTHONPATH for absolute imports, regardless of invocation directory
 
 uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
