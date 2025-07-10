@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-import src.api.db as db
-from src.api.routers_auth import router as auth_router
-from src.api.routers_main import router as api_router
+import src.api.db as db  # Absolute import for db
+from src.api.routers_auth import router as auth_router  # Absolute import for auth_router
+from src.api.routers_main import router as api_router  # Absolute import for api_router
 
 tags_metadata = [
     {"name": "auth", "description": "User authentication and JWT."},
@@ -14,7 +14,7 @@ app = FastAPI(
     title="Personal Finance Tracker API",
     description="Backend API for user auth, transactions, budgets, and dashboard.",
     version="0.1.0",
-    openapi_tags=tags_metadata
+    openapi_tags=tags_metadata,
 )
 
 app.add_middleware(
