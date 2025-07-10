@@ -7,8 +7,10 @@ from typing import List
 import shutil, os
 from datetime import datetime
 
-from . import models, schemas, auth
-from .db import get_db
+import src.api.models as models
+import src.api.schemas as schemas
+import src.api.auth as auth
+from src.api.db import get_db
 
 router = APIRouter(prefix="/api", tags=["api"])
 

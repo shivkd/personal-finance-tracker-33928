@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from . import db
-from .routers_auth import router as auth_router
-from .routers_main import router as api_router
+import src.api.db as db
+from src.api.routers_auth import router as auth_router
+from src.api.routers_main import router as api_router
 
 tags_metadata = [
     {"name": "auth", "description": "User authentication and JWT."},

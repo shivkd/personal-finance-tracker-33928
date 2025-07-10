@@ -3,8 +3,8 @@ SQLAlchemy session/engine configuration and helpers.
 """
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from .config import get_supabase_database_url
-from .models import Base
+from src.api.config import get_supabase_database_url
+from src.api.models import Base
 
 DB_URL = get_supabase_database_url()
 
