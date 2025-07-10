@@ -1,1 +1,3 @@
-# personal-finance-tracker-33928
+# Project Repository
+
+This is the initial README file for the project.
