@@ -17,8 +17,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source code
 COPY . .
 
-# Set PYTHONPATH for src absolute import discovery
-ENV PYTHONPATH=/app/finance_backend/src
+# Set robust PYTHONPATH for src importability from WORKDIR and subdirs
+ENV PYTHONPATH="/app/finance_backend/src:/app/finance_backend"
 
 # Expose FastAPI port
 EXPOSE 8000

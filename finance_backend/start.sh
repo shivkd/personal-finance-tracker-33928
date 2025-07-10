@@ -3,6 +3,8 @@
 
 set -e
 
-export PYTHONPATH="$(cd "$(dirname "$0")"; pwd)/src"  # Ensure src is in PYTHONPATH for absolute imports, regardless of invocation directory
+# Set WORKDIR to backend root and robust PYTHONPATH for container context
+cd "$(dirname "$0")"
+export PYTHONPATH="$(pwd)/src:$(pwd)"
 
 uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --reload
