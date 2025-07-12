@@ -8,16 +8,17 @@ Set the following variables in your `.env` file:
 - `SUPABASE_URL=<your_supabase_url>`
 - `SUPABASE_KEY=<your_supabase_api_key>`
 - `SUPABASE_DB_URL=<your_supabase_postgres_connection_url>` (optional, or use `SUPABASE_URL` if compatible)
+- `DATABASE_URL=<your_supabase_postgres_connection_url>` (supported; used as fallback by the backend for SQLAlchemy)
 
 ## Database Connection
 
 - The FastAPI backend uses SQLAlchemy to connect directly to the Supabase PostgreSQL instance for all data models (User, Transactions, Budget, etc).
-- The connection string is loaded via `SUPABASE_DB_URL` or `SUPABASE_URL` from environment.
+- The connection string is loaded via `SUPABASE_DB_URL`, or `SUPABASE_URL`, or `DATABASE_URL` from environment (in that order of precedence).
 
 ## Recommended Setup
 
 1. Copy the PostgreSQL connection string from Supabase project dashboard.
-2. Add all keys to your backend `.env` file.
+2. Add all keys to your backend `.env` file (`DATABASE_URL` is recommended for platform compatibility).
 3. On app start, tables are auto-created in Supabase (development only).
 
 ## Security
